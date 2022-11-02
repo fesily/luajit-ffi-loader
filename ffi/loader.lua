@@ -3,7 +3,7 @@ local string_gmatch = string.gmatch
 local string_match = string.match
 local old_ffi_load = ffi.load
 local _M = {
-    is_ios = ffi.os == 'ios'
+    is_ios = ffi.os == 'OSX'
 }
 ---@param name string
 function _M.loadlib(name, global, cpath)
