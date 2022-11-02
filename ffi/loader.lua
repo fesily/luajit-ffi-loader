@@ -58,6 +58,12 @@ end
 ---@return ffi.namespace* clib
 ---@nodiscard
 function ffi.load(name, global, find_lua_path)
+    local f = io.open(name, 'r')
+    if f then
+        f:close();
+        return old_ffi_load(name, global)
+    end
+
     local lib = load(name, global, package.cpath)
     if lib then return lib end
 
@@ -65,7 +71,6 @@ function ffi.load(name, global, find_lua_path)
         lib = load(name, global, package.path)
         if lib then return lib end
     end
-
     return old_ffi_load(name, global)
 end
 
