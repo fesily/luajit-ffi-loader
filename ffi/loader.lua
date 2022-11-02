@@ -7,8 +7,11 @@ local _M = {
 }
 ---@param name string
 function _M.loadlib(name, global, cpath)
-    local so_name = name
 
+    local so_name = name
+    if name:find("lib") ~= 1 then
+        name = "lib" .. name
+    end
     for k, _ in string_gmatch(cpath, "[^;]+") do
         local so_path = string_match(k, "(.*/)")
         if so_path then
