@@ -1,0 +1,8 @@
+{
+    "Lua.runtime.version": "LuaJIT",
+    "Lua.workspace.library": [
+        "${3rd}/luassert/library",
+        "${3rd}/busted/library"
+    ],
+    "Lua.workspace.checkThirdParty": false
+}
